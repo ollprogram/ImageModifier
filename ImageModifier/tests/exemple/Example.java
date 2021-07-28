@@ -13,7 +13,10 @@ class Example {
         fromURLTest();//Be sure to have an internet connection
         monochrome();
     }
-
+    
+    /**
+    * Image creation example
+    */
     private static void imageCreationTest() throws IOException {
         Bitmap bmp = new Bitmap(2, 2);
         bmp.setPixel(0,0, new Pixel(122, 0, 255, 255));
@@ -24,17 +27,26 @@ class Example {
         file.save("there.bmp", true);
     }
 
+    /**
+    * Loading and saving image example
+    */
     private static void loadingTest() throws IOException {
         BMPFile file = new BMPFile("there.bmp");
         file.save("saved.bmp", true);
     }
-
+    
+    /**
+    * Downloading an image from an URL
+    */
     private static void fromURLTest() throws IOException {
         BMPFile f = new BMPFile("https://p4.wallpaperbetter.com/wallpaper"
                 +"/368/353/216/animal-cute-meerkat-wallpaper-preview.jpg");
         f.save("fromUrl.bmp", false);
     }
 
+    /**
+    * Modifying an image 
+    */
     private static void monochrome() throws IOException {
         BMPFile f = new BMPFile("fromUrl.bmp");
         Bitmap bmp = f.getBitmap();
