@@ -9,4 +9,4 @@ Version: 1.0
 ## Usage
 [Exemple of use here](/ImageModifier/tests/exemple/Example.java)
 ## Download
-[You can download the jar file here](/ImageModifier.jar)
+[JAR file here](/ImageModifier.jar)
