@@ -149,9 +149,13 @@ public class BMPFile {
      * @throws IOException If an I/O error occurs.
      */
     private void writeBitmapArray24(DataOutputStream out) throws IOException {
+        int appendNumber = (bitmap.getWidth() * 3 ) % 4;
         for(int y = bitmap.getHeight() -1; y >= 0; y--){
             for(int x = 0; x < bitmap.getWidth(); x++){
                 writeEndian24(out, bitmap.getRGB(x, y));
+            }
+            for(int i = 0; i < appendNumber; i++){
+                out.write(0);//adding bytes to preserve a multiple of 4bytes per lines in the array
             }
         }
     }
