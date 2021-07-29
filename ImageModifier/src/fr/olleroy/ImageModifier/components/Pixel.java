@@ -3,8 +3,8 @@ package fr.olleroy.ImageModifier.components;
 import java.awt.Color;
 import java.util.Objects;
 /**
- * @version 1.0
  * An RGB or ARGB Pixel (24 bits or 32 bits).
+ * @version 1.0
  * @author olleroy alias ollprogram
  */
 public class Pixel {
