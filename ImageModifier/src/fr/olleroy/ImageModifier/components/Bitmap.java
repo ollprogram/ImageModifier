@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Bitmap looks like a BufferedImage but is smaller in memory.
  * BufferedImage could be more efficient to open files faster -> could upgrade to it in an other version.
  * @author olleory alias ollprogram.
- * @version 1.0
+ * @version 1.1.0
  */
 public class Bitmap {
     private final Pixel [] [] map;//pixel array

@@ -12,7 +12,7 @@ import java.net.URL;
 /**
  * Represent a bmp file.
  * @author olleroy alias ollprogram.
- * @version 1.0
+ * @version 1.1.0
  */
 public class BMPFile {
     private Bitmap bitmap; //Bitmap is smaller than BufferedImage
@@ -40,11 +40,16 @@ public class BMPFile {
     }
 
     /**
-     * Construct a BMPFile with the specified bitmap.
-     * @param bitmap The bitmap of the bmp file.
+     * Construct a BMPFile with a new Bitmap built with the specified Bitmap
+     * @param bitmap The bitmap for the bmp file.
      */
     public BMPFile(Bitmap bitmap){
-        this.bitmap = bitmap;
+        this.bitmap = new Bitmap(bitmap.getWidth(), bitmap.getHeight());
+        for(int y = 0; y < bitmap.getHeight(); y++){
+            for(int x = 0; x < bitmap.getWidth(); x++){
+                this.bitmap.setPixel(x, y, bitmap.getARGB(x, y));
+            }
+        }
     }
 
     /**
