@@ -7,17 +7,17 @@ import java.util.Arrays;
 /**
  * Bitmap class stores pixels and basic information about the image.
  * Bitmap looks like a BufferedImage but is smaller in memory.
- * BufferedImage could be more efficient to open files faster -> could upgrade to it in an other version.
+ * BufferedImage could be more efficient to open files faster -> could upgrade to it.
  * @author olleory alias ollprogram.
- * @version 1.1.0
+ * @version 1.2.0
  */
 public class Bitmap {
-    private final Pixel [] [] map;//pixel array
-    private final int width;
-    private final int height;
+    private Pixel [] [] map;//pixel array
+    private int width;
+    private int height;
 
     /**
-     * Construct a bitmap with the the specified size.
+     * Construct a bitmap with the specified size.
      * @param width Width of the bitmap image.
      * @param height Height of the bitmap image.
      */
@@ -33,9 +33,25 @@ public class Bitmap {
     }
 
     /**
+     * Replace completely the bitmap.
+     * This method allow changing entirely the bitmap without changing
+     * the reference of the object (not creating a new object in memory).
+     * @param bmp The bitmap which will replace the older bitmap.
+     */
+    public void change(Bitmap bmp){
+        this.map = bmp.getMap();
+        this.width = bmp.getWidth();
+        this.height = bmp.getHeight();
+    }
+
+    private Pixel[][] getMap(){
+        return map;
+    }
+
+    /**
      * Get a pixel.
-     * @param x X axis location.
-     * @param y Y axis location.
+     * @param x X-axis location.
+     * @param y Y-axis location.
      * @return The pixel at the specified location in the bitmap. Black pixel it's a 0x0 bitmap.
      */
     public Pixel getPixel(int x, int y){
@@ -45,8 +61,8 @@ public class Bitmap {
 
     /**
      * Get the RGB color of a specified pixel.
-     * @param x X axis location.
-     * @param y Y axis location.
+     * @param x X-axis location.
+     * @param y Y-axis location.
      * @return The RGB color of the pixel with his specified location in the bitmap.
      */
     public int getRGB(int x, int y){
@@ -55,8 +71,8 @@ public class Bitmap {
 
     /**
      * Get the ARGB color of a specified pixel.
-     * @param x X axis location.
-     * @param y Y axis location.
+     * @param x X-axis location.
+     * @param y Y-axis location.
      * @return The ARGB color of the pixel with his specified location in the bitmap.
      */
     public int getARGB(int x, int y){
@@ -67,22 +83,22 @@ public class Bitmap {
 
     /**
      * Modify the color of a pixel in the bitmap.
-     * @param x X axis location.
-     * @param y Y axis location.
+     * @param x X-axis location.
+     * @param y Y-axis location.
      * @param pixel Pixel for replacement.
      */
     public void setPixel(int x, int y, Pixel pixel){ map[y][x] = pixel; }
     /**
      * Modify the color of a pixel in the bitmap.
-     * @param x X axis location.
-     * @param y Y axis location.
+     * @param x X-axis location.
+     * @param y Y-axis location.
      * @param color An integer in RGB or ARGB format.
      */
     public void setPixel(int x, int y, int color){ map[y][x].setColor(color);}
     /**
      * Modify the color of a pixel in the bitmap.
-     * @param x X axis location.
-     * @param y Y axis location.
+     * @param x X-axis location.
+     * @param y Y-axis location.
      * @param r Red color.
      * @param g Green color.
      * @param b Blue color.
@@ -90,8 +106,8 @@ public class Bitmap {
     public void setPixel(int x, int y, int r, int g, int b){ map[y][x].setColor(r,g,b);}
     /**
      * Modify the color of a pixel in the bitmap.
-     * @param x X axis location.
-     * @param y Y axis location.
+     * @param x X-axis location.
+     * @param y Y-axis location.
      * @param a Alpha.
      * @param r Red color.
      * @param g Green color.
@@ -100,8 +116,8 @@ public class Bitmap {
     public void setPixel(int x, int y, int a, int r, int g, int b){ map[y][x].setColor(a, r, g, b);}
     /**
      * Modify the color of a pixel in the bitmap.
-     * @param x X axis location.
-     * @param y Y axis location.
+     * @param x X-axis location.
+     * @param y Y-axis location.
      * @param color The color to set.
      */
     public void setPixel(int x, int y, Color color){map[y][x].setColor(color);}
@@ -154,4 +170,5 @@ public class Bitmap {
         if (alpha) return height * width * 4;
         else return height * width * 3;
     }
+
 }

@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * An RGB or ARGB Pixel (24 bits or 32 bits).
  * @author olleroy alias ollprogram
- * @version 1.1.0
+ * @version 1.2.0
  */
 public class Pixel {
     private int red = 0;
@@ -62,7 +62,7 @@ public class Pixel {
      * @param r Red color.
      * @param g Green color.
      * @param b Blue color.
-     * @return An array of 4 elements <code>{alpha, red, green, blue}</code>. Each elements are from 0 to 255.
+     * @return An array of 4 elements <code>{alpha, red, green, blue}</code>. All elements are from 0 to 255.
      */
     public static int[] parseARGB(int a, int r, int g, int b){
         int[] res = new int[4];

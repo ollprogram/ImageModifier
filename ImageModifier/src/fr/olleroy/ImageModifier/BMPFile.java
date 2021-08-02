@@ -12,15 +12,15 @@ import java.net.URL;
 /**
  * Represent a bmp file.
  * @author olleroy alias ollprogram.
- * @version 1.1.0
+ * @version 1.2.0
  */
 public class BMPFile {
     private Bitmap bitmap; //Bitmap is smaller than BufferedImage
 
     /**
-     * Construct a BMPFile from a file or an URL.
+     * Construct a BMPFile from a file or a URL.
      * @param imagePathnameOrURL The pathname or the URL of the image.
-     * @throws IOException If can't access or read the File.
+     * @throws IOException If it can't access or read the File.
      */
     public BMPFile(String imagePathnameOrURL) throws IOException {
         BufferedImage img;
@@ -69,7 +69,7 @@ public class BMPFile {
      * Load an image from a file.
      * @param pathname The pathname to the file.
      * @return The image from the file.
-     * @throws IOException If can't read the file.
+     * @throws IOException If it can't access or read the file.
      */
     private BufferedImage loadImageFromFile(String pathname) throws IOException{
         File file = new File(pathname);
@@ -77,7 +77,7 @@ public class BMPFile {
     }
 
     /**
-     * Load an image from an URL.
+     * Load an image from a URL.
      * @param URL An image URL.
      * @return The BufferedImage (image) from the URL.
      */
