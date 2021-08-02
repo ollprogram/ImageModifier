@@ -1,7 +1,7 @@
 # ImageModifier
 
 ## Description
-Little tool for accessing an image, modify it, and save it in bmp format. 
+Little tool to access an image, modify it, and save it to a bmp format. 
 ## Documentation
 [JavaDocs here](https://ollprogram.github.io/OllprogramLibrariesDocs/)
 ## Version
